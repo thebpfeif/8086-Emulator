@@ -5,6 +5,7 @@ Abbreviation Notes: biu = business interface unit
 */
 
 #include "stdint.h"
+#include "string.h"
 
 #include "biu_pub_registers.h"
 

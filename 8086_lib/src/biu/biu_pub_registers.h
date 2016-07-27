@@ -13,6 +13,18 @@ enum
 };
 
 /* PROCEDURES */
-void BIU_reg_init( void );
-uint16_t BIU_reg_get( BIU_reg_t8 reg );
-void BIU_reg_set( BIU_reg_t8 reg, uint16_t val );
+void BIU_reg_init
+( 
+	void 
+);
+
+uint16_t BIU_reg_get
+( 
+	BIU_reg_t8 reg 
+);
+
+void BIU_reg_set
+( 
+	BIU_reg_t8 reg, 
+	uint16_t val 
+);

@@ -31,7 +31,24 @@ enum
 
 /* PROCEDURES */
 
-void EXU_reg_init( void ); 
-uint16_t EXU_16_reg_get( EXU_reg_16_t8 reg );
-void EXU_16_reg_set ( EXU_reg_16_t8 reg, uint16_t val );
-void EXU_8_reg_set( EXU_reg_8_t8 reg, uint8_t val );
+void EXU_16_bit_reg_init
+( 
+	void 
+);
+
+uint16_t EXU_16_bit_reg_get
+( 
+	EXU_reg_16_t8 reg 
+);
+
+void EXU_16_bit_reg_set
+( 
+	EXU_reg_16_t8 reg, 
+	uint16_t val 
+);
+
+void EXU_8_bit_reg_set
+( 
+	EXU_reg_8_t8 reg, 
+	uint8_t val 
+);

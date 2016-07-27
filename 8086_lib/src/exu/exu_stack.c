@@ -7,6 +7,7 @@ Abbreviation Notes: exu = Execution Unit
 #include "stdint.h"
 
 #include "exu_pub_registers.h"
+#include "exu_pub_stack.h"
 #include "biu_pub_registers.h"
 
 /* constants */
@@ -25,7 +26,7 @@ void EXU_stack_init( void )
 /* initialize the stack pointer 
    to the start of the stack segment */
 	stack_seg = BIU_reg_get( BIU_SS );
-	EXU_16_reg_set( EXU_SP, stack_seg );
+	EXU_16_bit_reg_set( EXU_SP, stack_seg );
 }
 
 void EXU_stack_push( uint16_t data )
@@ -36,7 +37,7 @@ void EXU_stack_push( uint16_t data )
 	uint16_t stack_seg; 
 
 	/* Get the stack pointer and stack segment */
-	stack_pointer = EXU_16_reg_get( EXU_SP ); 
+	stack_pointer = EXU_16_bit_reg_get( EXU_SP ); 
 	stack_seg = BIU_reg_get( BIU_SS );
 
 	/* Verify we are not blowing the stack */
@@ -59,7 +60,7 @@ void EXU_stack_push( uint16_t data )
 		stack_pointer--;
 
 		/* save the stack pointer */
-		EXU_16_reg_set( EXU_SP, stack_pointer );
+		EXU_16_bit_reg_set( EXU_SP, stack_pointer );
 	}
 	else
 	{
@@ -75,7 +76,7 @@ uint16_t EXU_stack_pop( void )
 	uint8_t  low_byte; 
 
 	/* Get the stack pointer */
-	stack_pointer = EXU_16_reg_get( EXU_SP );
+	stack_pointer = EXU_16_bit_reg_get( EXU_SP );
 
 	/* Verify we are not blowing the stack */
 	if (stack_pointer - 1 < STACK_SIZE)
@@ -95,10 +96,8 @@ uint16_t EXU_stack_pop( void )
 		/* shift high byte to upper 8 bits and OR low byte */
 		( stack_data << 8 );
 		stack_data |= low_byte; 
-		
 	}
 	
 	return( stack_data );
-
 }
 

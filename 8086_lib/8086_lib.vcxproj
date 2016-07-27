@@ -28,6 +28,7 @@
     <ClInclude Include="src\biu\biu_pub_registers.h" />
     <ClInclude Include="src\exu\exu_pub_flags.h" />
     <ClInclude Include="src\exu\exu_pub_registers.h" />
+    <ClInclude Include="src\exu\exu_pub_stack.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{46D31388-52FA-48D2-B8F7-B600E8BC3341}</ProjectGuid>
@@ -81,7 +82,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\git\8086_emulator\8086_lib\src;$(IncludePath)</IncludePath>
+    <IncludePath>C:\git\8086_emulator\8086_lib\src\biu;C:\git\8086_emulator\8086_lib\src\exu;C:\git\8086_emulator\8086_lib\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -4,8 +4,9 @@
 	Abbreviation Notes: exu = Execution Unit
 */
 
-#include "stdafx.h"
 #include "stdint.h"
+#include "stdio.h"
+#include "string.h"
 
 #include "exu_pub_registers.h"
 
@@ -15,6 +16,20 @@ static uint16_t s_reg_array[ EXU_REG_16_COUNT ];
 void EXU_16_bit_reg_init( void )
 {
 	memset( s_reg_array, 0x00, sizeof( s_reg_array[ EXU_REG_16_COUNT ] ) );
+}
+
+uint16_t EXU_16_bit_reg_get( EXU_reg_16_t8 reg )
+{
+	/* local variables */
+	uint16_t reg_val; 
+	
+	if (reg < EXU_REG_16_COUNT)
+	{
+		/* retrieve register value */
+		reg_val = s_reg_array[ reg ];
+	}
+
+	return( reg_val );
 }
 
 void EXU_16_bit_reg_set( EXU_reg_16_t8 reg, uint16_t val )

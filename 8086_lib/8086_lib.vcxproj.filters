@@ -36,5 +36,8 @@
     <ClInclude Include="src\biu\biu_pub_registers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\exu\exu_pub_stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
