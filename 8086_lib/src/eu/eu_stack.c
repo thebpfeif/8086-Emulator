@@ -1,13 +1,13 @@
-/*	File name: exu_stack.c
+/*	File name: eu_stack.c
 Description: Handles the pushing and popping commands on the stack
 and maintains the stack pointer 
-Abbreviation Notes: exu = Execution Unit
+Abbreviation Notes: eu = Execution Unit
 */
 
 #include "stdint.h"
 
-#include "exu_pub_registers.h"
-#include "exu_pub_stack.h"
+#include "eu_pub_registers.h"
+#include "eu_pub_stack.h"
 #include "biu_pub_registers.h"
 
 /* constants */
@@ -18,7 +18,7 @@ Abbreviation Notes: exu = Execution Unit
 //BRP: This will later be managed in some sort of memory file
 uint8_t s_stack[ STACK_SIZE ];
 
-void EXU_stack_init( void )
+void EU_stack_init( void )
 {
 /*local variables */
 	uint16_t stack_seg; 
@@ -26,10 +26,10 @@ void EXU_stack_init( void )
 /* initialize the stack pointer 
    to the start of the stack segment */
 	stack_seg = BIU_reg_get( BIU_SS );
-	EXU_16_bit_reg_set( EXU_SP, stack_seg );
+	EU_16_bit_reg_set( EU_SP, stack_seg );
 }
 
-void EXU_stack_push( uint16_t data )
+void EU_stack_push( uint16_t data )
 {
 	/* Local variables */
 	uint8_t  low_byte; 
@@ -37,7 +37,7 @@ void EXU_stack_push( uint16_t data )
 	uint16_t stack_seg; 
 
 	/* Get the stack pointer and stack segment */
-	stack_pointer = EXU_16_bit_reg_get( EXU_SP ); 
+	stack_pointer = EU_16_bit_reg_get( EU_SP ); 
 	stack_seg = BIU_reg_get( BIU_SS );
 
 	/* Verify we are not blowing the stack */
@@ -60,7 +60,7 @@ void EXU_stack_push( uint16_t data )
 		stack_pointer--;
 
 		/* save the stack pointer */
-		EXU_16_bit_reg_set( EXU_SP, stack_pointer );
+		EU_16_bit_reg_set( EU_SP, stack_pointer );
 	}
 	else
 	{
@@ -68,7 +68,7 @@ void EXU_stack_push( uint16_t data )
 	}
 }
 
-uint16_t EXU_stack_pop( void )
+uint16_t EU_stack_pop( void )
 {
 	/* Local variables */
 	uint16_t stack_pointer; 
@@ -76,7 +76,7 @@ uint16_t EXU_stack_pop( void )
 	uint8_t  low_byte; 
 
 	/* Get the stack pointer */
-	stack_pointer = EXU_16_bit_reg_get( EXU_SP );
+	stack_pointer = EU_16_bit_reg_get( EU_SP );
 
 	/* Verify we are not blowing the stack */
 	if (stack_pointer - 1 < STACK_SIZE)

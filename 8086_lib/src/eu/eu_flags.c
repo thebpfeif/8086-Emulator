@@ -1,12 +1,12 @@
-/*	File name: exu_flags.c
+/*	File name: eu_flags.c
 Description: Handler for the 8086 flag register 
-Abbreviation Notes: exu = Execution Unit
+Abbreviation Notes: eu = Execution Unit
 */
 
 #include "stdint.h"
 #include "stdbool.h"
 
-#include "exu_pub_flags.h"
+#include "eu_pub_flags.h"
 
 static uint16_t s_flag_reg;
 
