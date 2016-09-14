@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="eu">
+      <UniqueIdentifier>{e8bf6c77-0bc1-4cd6-8e06-396a6a5aa033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="biu">
+      <UniqueIdentifier>{90fe9e32-5fc9-4223-8c5d-840f4f979a10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\8086e\eu\eu_pub_flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\8086e\eu\eu_pub_registers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\8086e\eu\eu_pub_stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\8086e\biu\biu_pub_registers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\8086e\eu\eu_pub_alu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\8086e\biu\biu_pub_decode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\8086e\biu\biu_registers.c">
+      <Filter>biu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\8086e\eu\eu_flags.c">
+      <Filter>eu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\8086e\eu\eu_registers.c">
+      <Filter>eu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\8086e\eu\eu_stack.c">
+      <Filter>eu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\8086e\eu\eu_alu.c">
+      <Filter>eu</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+[submodule "lib/8086e"]
+	path = lib/8086e
+	url = https://github.com/thebpfeif/8086e-lib/
