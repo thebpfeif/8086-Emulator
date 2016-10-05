@@ -9,7 +9,17 @@
 
 #include "cmd_pub_list.h"
 #include "cmd_pub_proc.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif 
+
 #include "eu_pub_registers.h"
+
+#ifdef __cplusplus
+}
+#endif 
 
 /* PROCEDURES */
 void help_output
@@ -63,7 +73,7 @@ void dump_output( std::string * output )
 {
 	uint16_t reg_val = 0; 
 	/* retrieve register values and append to buffer */
-	//reg_val = EU_16_bit_reg_get( EU_AX );
+	reg_val = EU_16_bit_reg_get( EU_AX );
 	output->append( "AX: 0x" + std::to_string( reg_val ) );
 }
 
