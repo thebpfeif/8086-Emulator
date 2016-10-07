@@ -1,4 +1,8 @@
-/* Command Processing */
+/*	File name: cmd_proc.c
+Description: Processes console commands 
+entered by the user
+Version: 0.10
+*/
 
 /* INCLUDES */
 #include "stdafx.h"
@@ -32,36 +36,61 @@ void dump_output
 	std::string * output 
 );
 
-/* VARIBALES */
-static const CMD_list_type cmd_list[] =
+/* TYPES */
+class command_list
 {
-	{ CMD_HELP, "help", help_output },
-	{ CMD_DUMP, "dump", dump_output }
+public: 
+	CMD_id id;								/* command ID				*/
+	std::string text_input;					/* user input text			*/
+	std::string text_output;				/* console output text		*/
+	void( *fptr )( std::string* );			/* output function pointer  */
 };
 
-void CMD_init()
+/* VARIBALES */
+static const command_list s_cmd_list[] =
 {
+	{ CMD_HELP, "help", "", help_output },
+	{ CMD_DUMP, "dump", "", dump_output }
+};
 
-}
-
-bool CMD_process_input( std::string * input, std::string * output )
+/* PROCEDURES */
+bool command::input_process( std::string &input, std::string &output )
 {
 	bool valid; 
-
+	CMD_id id; 
 	valid = false; 
+
+	id = command::parse( input );
 	//TODO: check to see if command is alpha or numeric 
+	/* call function pointer associated with it */
+	//( cmd_list[ i ].fptr( &output ) );
+	return ( valid );
+}
+
+CMD_id command::parse( std::string & input )
+{
+	CMD_id id = CMD_INVALID; 
+
 	for ( int i = 0; i < CMD_COUNT; i++ )
 	{
-		if ( !input->compare( cmd_list[ i ].cmd_string ) )
+		if ( !input.compare( s_cmd_list[ i ].text_input ) )
 		{
-			/* call function pointer associated with it */
-			( cmd_list[ i ].fptr( output ) );
-			valid = true; 
-			break; 
+			id = s_cmd_list[ i ].id;
+			break;
 		}
 	}
 
-	return ( valid );
+	return id;
+}
+
+void command::output_get( CMD_id id, std::string &output )
+{
+	if ( s_cmd_list[ id ].text_output.empty( ) )
+	{
+		/* Call associated function */
+	}
+
+	output = s_cmd_list[ id ].text_output;
 }
 
 void help_output( std::string * output )

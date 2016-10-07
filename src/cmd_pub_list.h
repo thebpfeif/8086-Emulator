@@ -5,6 +5,7 @@ enum
 {
 	CMD_HELP,
 	CMD_DUMP, 
+	CMD_INVALID, 
 	CMD_COUNT
 };
 

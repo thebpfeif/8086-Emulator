@@ -14,6 +14,7 @@ int main()
 {
 	using namespace std; 
 
+	command cmd;	/* command object declaration */
 	bool new_line;
 	bool valid; 
 	string input; 
@@ -30,8 +31,8 @@ int main()
 		{
 		getline( cin, input );
 		}
-
-		valid = CMD_process_input( &input, &output );
+		
+		valid = cmd.input_process( input, output );
 
 		if ( valid )
 		{
